@@ -1,0 +1,310 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+
+body {
+  background: #a4cdcd;
+  height: 100vh; }
+
+.menu-dots {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  flex-direction: column; }
+  .menu-dots div {
+    width: 7px;
+    height: 7px;
+    background: white;
+    border-radius: 50%;
+    margin: 2px; }
+  .menu-dots:hover > div {
+    background: #272323;
+    transition: all 0.2s ease-in; }
+  .menu-dots.visible > div {
+    background: #272323; }
+
+.inst-modal {
+  visibility: hidden;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.2);
+  background: white;
+  padding: 2px;
+  z-index: 1;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.9);
+  transition: transform 0.3s ease-out; }
+  .inst-modal.visible {
+    visibility: visible;
+    transform: translateX(-50%) scale(1); }
+  .inst-modal .modal-close {
+    position: absolute;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer; }
+    .inst-modal .modal-close:hover {
+      color: #a4cdcd; }
+  .inst-modal .inst-heading {
+    padding: 10px 20px;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid #272323; }
+  .inst-modal .inst-body {
+    padding: 10px 20px;
+    line-height: 2.3; }
+    .inst-modal .inst-body ul {
+      padding: 15px; }
+
+.card {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 0;
+  text-transform: uppercase;
+  width: 70%;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3); }
+  .card .card-body {
+    padding: 0; }
+    .card .card-body .player-panel {
+      padding: 80px;
+      color: #272323; }
+      .card .card-body .player-panel .name {
+        padding: 5px 15px;
+        font-size: 50px;
+        font-weight: 200; }
+      .card .card-body .player-panel .score {
+        color: #a4cdcd;
+        font-size: 60px;
+        font-weight: 100; }
+      .card .card-body .player-panel .current-box {
+        background: #272323;
+        padding: 12px 25px;
+        margin-top: 100px;
+        text-align: center;
+        color: white; }
+        .card .card-body .player-panel .current-box .current-label {
+          color: #a4cdcd;
+          font-size: 12px;
+          font-weight: 500; }
+        .card .card-body .player-panel .current-box .current-score {
+          font-size: 30px;
+          font-weight: 400; }
+      .card .card-body .player-panel.active {
+        background: #f2f2f2; }
+        .card .card-body .player-panel.active .name {
+          font-weight: 350;
+          border: 1px outset #a4cdcd; }
+      .card .card-body .player-panel.winner {
+        background: #f2f2f2; }
+        .card .card-body .player-panel.winner .name {
+          color: #a4cdcd;
+          font-weight: 400; }
+    .card .card-body .btn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #272323;
+      font-size: 20px;
+      text-transform: uppercase;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3); }
+      .card .card-body .btn.new {
+        top: 10%; }
+      .card .card-body .btn.roll {
+        top: 68%; }
+      .card .card-body .btn.hold {
+        top: 80%; }
+      .card .card-body .btn:hover {
+        background: #a4cdcd; }
+      .card .card-body .btn:active {
+        box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 0, 0, 0.3); }
+
+.dice {
+  background: white;
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  padding: 20px;
+  height: 90px;
+  width: 90px;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.3); }
+  .dice div {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #a4cdcd; }
+  .dice.d-1 div:first-child {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .dice.d-1 div:nth-child(2) {
+    display: none; }
+  .dice.d-1 div:nth-child(3) {
+    display: none; }
+  .dice.d-1 div:nth-child(4) {
+    display: none; }
+  .dice.d-1 div:nth-child(5) {
+    display: none; }
+  .dice.d-1 div:last-child {
+    display: none; }
+  .dice.d-2 div:first-child {
+    display: none; }
+  .dice.d-2 div:nth-child(2) {
+    top: 20px;
+    right: 20px; }
+  .dice.d-2 div:nth-child(3) {
+    display: none; }
+  .dice.d-2 div:nth-child(4) {
+    display: none; }
+  .dice.d-2 div:nth-child(5) {
+    left: 20px;
+    bottom: 20px; }
+  .dice.d-2 div:last-child {
+    display: none; }
+  .dice.d-3 div:first-child {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .dice.d-3 div:nth-child(2) {
+    top: 20px;
+    right: 20px; }
+  .dice.d-3 div:nth-child(3) {
+    display: none; }
+  .dice.d-3 div:nth-child(4) {
+    display: none; }
+  .dice.d-3 div:nth-child(5) {
+    left: 20px;
+    bottom: 20px; }
+  .dice.d-3 div:last-child {
+    display: none; }
+  .dice.d-4 div:first-child {
+    display: none; }
+  .dice.d-4 div:nth-child(2) {
+    top: 20px;
+    right: 20px; }
+  .dice.d-4 div:nth-child(3) {
+    top: 20px;
+    left: 20px; }
+  .dice.d-4 div:nth-child(4) {
+    right: 20px;
+    bottom: 20px; }
+  .dice.d-4 div:nth-child(5) {
+    left: 20px;
+    bottom: 20px; }
+  .dice.d-4 div:last-child {
+    display: none; }
+  .dice.d-5 div:first-child {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .dice.d-5 div:nth-child(2) {
+    top: 20px;
+    right: 20px; }
+  .dice.d-5 div:nth-child(3) {
+    top: 20px;
+    left: 20px; }
+  .dice.d-5 div:nth-child(4) {
+    right: 20px;
+    bottom: 20px; }
+  .dice.d-5 div:nth-child(5) {
+    left: 20px;
+    bottom: 20px; }
+  .dice.d-5 div:last-child {
+    display: none; }
+  .dice.d-6 div:first-child {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px; }
+  .dice.d-6 div:nth-child(2) {
+    top: 20px;
+    right: 20px; }
+  .dice.d-6 div:nth-child(3) {
+    top: 20px;
+    left: 20px; }
+  .dice.d-6 div:nth-child(4) {
+    right: 20px;
+    bottom: 20px; }
+  .dice.d-6 div:nth-child(5) {
+    left: 20px;
+    bottom: 20px; }
+  .dice.d-6 div:last-child {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px; }
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .card .card-body .player-panel {
+    padding: 80px 40px; }
+    .card .card-body .player-panel .name {
+      text-align: center;
+      font-size: 35px; }
+    .card .card-body .player-panel .score {
+      font-size: 50px; }
+    .card .card-body .player-panel .current-box {
+      margin-top: 120px; }
+      .card .card-body .player-panel .current-box .current-label {
+        font-size: 12px; }
+      .card .card-body .player-panel .current-box .current-score {
+        font-size: 20px; }
+  .card .card-body .btn {
+    font-size: 15px; }
+    .card .card-body .btn.roll {
+      top: 68%; }
+    .card .card-body .btn.hold {
+      top: 80%; } }
+
+@media screen and (max-width: 768px) {
+  .inst-modal {
+    width: 78%; }
+  .card {
+    width: 85%; }
+    .card .card-body .player-panel {
+      padding: 80px 40px; }
+      .card .card-body .player-panel .name {
+        text-align: center;
+        font-size: 18px; }
+      .card .card-body .player-panel .score {
+        font-size: 40px; }
+      .card .card-body .player-panel .current-box {
+        margin-top: 100px; }
+        .card .card-body .player-panel .current-box .current-label {
+          font-size: 10px; }
+        .card .card-body .player-panel .current-box .current-score {
+          font-size: 15px; }
+    .card .card-body .btn {
+      font-size: 10px; }
+      .card .card-body .btn.roll {
+        top: 65%; }
+      .card .card-body .btn.hold {
+        top: 76%; } }
+
+@media screen and (max-width: 500px) {
+  .inst-modal {
+    min-width: 80%; }
+    .inst-modal .inst-heading {
+      font-size: 18px; }
+    .inst-modal .inst-body {
+      font-size: 12px;
+      line-height: 2.3; }
+  .card {
+    width: 90%; }
+    .card .card-body .player-panel {
+      padding: 80px 15px; }
+      .card .card-body .player-panel .name {
+        font-size: 15px; }
+      .card .card-body .player-panel .score {
+        font-size: 30px; }
+      .card .card-body .player-panel .current-label {
+        font-size: 8px; }
+      .card .card-body .player-panel .current-score {
+        font-size: 12px; }
+    .card .btn {
+      font-size: 8px; } }

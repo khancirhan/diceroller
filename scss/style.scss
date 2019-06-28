@@ -1,0 +1,184 @@
+$primary-color: rgb(39, 35, 35);
+$secondary-color: rgb(255, 255, 255);
+$success-color: #a4cdcd;
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: $success-color;
+  height: 100vh;
+}
+
+.menu-dots {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+
+  div {
+    width: 7px;
+    height: 7px;
+    background: $secondary-color;
+    border-radius: 50%;
+    margin: 2px;
+  }
+
+  &:hover > div {
+    background: $primary-color;
+    transition: all 0.2s ease-in;
+  }
+
+  &.visible > div {
+    background: $primary-color;
+  }
+}
+
+.inst-modal {
+  visibility: hidden;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.2);
+  background: $secondary-color;
+  padding: 2px;
+  z-index: 1;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.9);
+  transition: transform 0.3s ease-out;
+
+  &.visible {
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+  }
+
+  .modal-close {
+    position: absolute;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+
+    &:hover {
+      color: $success-color;
+    }
+  }
+
+  .inst-heading {
+    padding: 10px 20px;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid $primary-color;
+  }
+
+  .inst-body {
+    padding: 10px 20px;
+    line-height: 2.3;
+
+    ul {
+      padding: 15px;
+    }
+  }
+}
+
+.card {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $secondary-color;
+  border-radius: 0;
+  text-transform: uppercase;
+  width: 70%;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+
+  .card-body {
+    padding: 0;
+    .player-panel {
+      padding: 80px;
+      color: $primary-color;
+
+      .name {
+        padding: 5px 15px;
+        font-size: 50px;
+        font-weight: 200;
+      }
+
+      .score {
+        color: $success-color;
+        font-size: 60px;
+        font-weight: 100;
+      }
+
+      .current-box {
+        background: $primary-color;
+        padding: 12px 25px;
+        margin-top: 100px;
+        text-align: center;
+        color: $secondary-color;
+
+        .current-label {
+          color: $success-color;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .current-score {
+          font-size: 30px;
+          font-weight: 400;
+        }
+      }
+
+      &.active {
+        background: darken($color: $secondary-color, $amount: 5);
+        .name {
+          font-weight: 350;
+          border: 1px outset $success-color;
+        }
+      }
+
+      &.winner {
+        background: darken($color: $secondary-color, $amount: 5);
+        .name {
+          color: $success-color;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .btn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: $primary-color;
+      font-size: 20px;
+      text-transform: uppercase;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+
+      &.new {
+        top: 10%;
+      }
+
+      &.roll {
+        top: 68%;
+      }
+
+      &.hold {
+        top: 80%;
+      }
+
+      &:hover {
+        background: $success-color;
+      }
+
+      &:active {
+        box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}
+
+@import "dice";
+@import "mobile";

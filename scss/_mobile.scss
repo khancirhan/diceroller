@@ -1,0 +1,136 @@
+$sm-max: 500px;
+$md-max: 768px;
+$lg-min: $md-max + 1;
+$lg-max: 1170px;
+
+@media screen and (min-width: $lg-min) and (max-width: $lg-max) {
+  .card {
+    .card-body {
+      .player-panel {
+        padding: 80px 40px;
+
+        .name {
+          text-align: center;
+          font-size: 35px;
+        }
+
+        .score {
+          font-size: 50px;
+        }
+
+        .current-box {
+          margin-top: 120px;
+
+          .current-label {
+            font-size: 12px;
+          }
+
+          .current-score {
+            font-size: 20px;
+          }
+        }
+      }
+      .btn {
+        font-size: 15px;
+
+        &.roll {
+          top: 68%;
+        }
+
+        &.hold {
+          top: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $md-max) {
+  .inst-modal {
+    width: 78%;
+  }
+
+  .card {
+    width: 85%;
+    .card-body {
+      .player-panel {
+        padding: 80px 40px;
+
+        .name {
+          text-align: center;
+          font-size: 18px;
+        }
+
+        .score {
+          font-size: 40px;
+        }
+
+        .current-box {
+          margin-top: 100px;
+
+          .current-label {
+            font-size: 10px;
+          }
+
+          .current-score {
+            font-size: 15px;
+          }
+        }
+      }
+      .btn {
+        font-size: 10px;
+
+        &.roll {
+          top: 65%;
+        }
+
+        &.hold {
+          top: 76%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $sm-max) {
+  .inst-modal {
+    min-width: 80%;
+
+    .inst-heading {
+      font-size: 18px;
+    }
+
+    .inst-body {
+      font-size: 12px;
+      line-height: 2.3;
+    }
+  }
+  .card {
+    width: 90%;
+
+    .card-body {
+      .player-panel {
+        padding: 80px 15px;
+
+        .name {
+          font-size: 15px;
+        }
+
+        .score {
+          font-size: 30px;
+        }
+
+        .current-label {
+          font-size: 8px;
+        }
+
+        .current-score {
+          font-size: 12px;
+        }
+      }
+    }
+    .btn {
+      font-size: 8px;
+    }
+  }
+}
